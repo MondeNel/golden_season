@@ -17,8 +17,8 @@ export default function DeploymentsSection() {
         </Reveal>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12"
-          style={{ gridAutoRows: '1fr' }}
+         className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mt-10 md:mt-12"
+         style={{ gridAutoRows: '1fr' }}
         >
           {deployments.map((dep, idx) => (
             <Reveal key={idx} delay={idx + 1}>
