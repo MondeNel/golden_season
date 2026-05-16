@@ -3,35 +3,42 @@ export default function ProductCard({ product, onClick }) {
     <button
       type="button"
       onClick={() => onClick?.(product)}
-      className="block w-full h-full text-left bg-navy-light border border-white/[0.07] rounded-14 overflow-hidden transition-all hover:border-teal/40 hover:-translate-y-1 group focus:outline-none focus:ring-2 focus:ring-teal"
+      className="group relative block w-full h-full text-left focus:outline-none"
     >
-      {/* Fixed aspect ratio container – all images become the same size */}
-      <div className="aspect-video overflow-hidden relative bg-[#0a1525]">
+      {/* Image container – clean, rounded, no border */}
+      <div className="aspect-[4/3] overflow-hidden rounded-xl bg-[#0a1525]">
         {product.img ? (
           <img
             src={product.img}
             alt={product.title}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="h-full flex items-center justify-center">
             <i className={`ti ${product.icon} text-6xl text-teal-light/15`}></i>
           </div>
         )}
-        <span className="absolute top-2.5 left-2.5 bg-navy/85 text-teal-light text-[10px] px-2 py-0.5 rounded font-medium border border-teal-light/20 uppercase tracking-wide">
-          {product.badge}
-        </span>
+        {/* Subtle overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      <div className="p-5 flex flex-col">
-        <h3 className="font-display text-base md:text-lg font-semibold text-white mb-2">
+      {/* Content below image */}
+      <div className="pt-4 pb-2">
+        {/* Category badge */}
+        <span className="inline-block text-teal text-[11px] uppercase tracking-[1.5px] font-semibold mb-2">
+          {product.badge}
+        </span>
+        {/* Title */}
+        <h3 className="font-display text-lg font-semibold text-white mb-1.5 group-hover:text-teal-light transition-colors">
           {product.title}
         </h3>
-        <p className="text-sm md:text-base text-muted leading-relaxed flex-1">
+        {/* Description */}
+        <p className="text-sm text-muted leading-relaxed line-clamp-2">
           {product.desc}
         </p>
-        <span className="inline-flex items-center gap-1 mt-4 text-teal-light text-sm font-medium group-hover:gap-2 transition-all">
-          View details <i className="ti ti-arrow-right"></i>
+        {/* Learn more link */}
+        <span className="inline-flex items-center gap-1.5 mt-3 text-teal-light text-sm font-medium group-hover:gap-2.5 transition-all">
+          Learn more <i className="ti ti-arrow-right text-xs"></i>
         </span>
       </div>
     </button>
