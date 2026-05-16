@@ -52,7 +52,7 @@ export default function Navbar() {
 
   const handleSearchAction = (action) => {
     if (action === 'open-quote') setQuoteOpen(true);
-    if (action === 'open-whatsapp') window.open('https://wa.me/6568632228', '_blank');
+    if (action === 'open-whatsapp') window.open('https://wa.me/27726390021', '_blank');
     if (action === 'open-video') window.open('https://youtube.com/@goldenseason1691', '_blank');
   };
 

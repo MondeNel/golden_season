@@ -24,7 +24,7 @@ export default function CTASection() {
           <Button href="https://gseason.com/global-support/" variant="primary">
             <i className="ti ti-headset"></i> Contact Global Support
           </Button>
-          <Button href="https://wa.me/6568632228" variant="outline">
+          <Button href="https://wa.me/27726390021" variant="outline">
             <i className="ti ti-brand-whatsapp"></i> Chat on WhatsApp
           </Button>
         </div>
