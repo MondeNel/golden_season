@@ -22,8 +22,8 @@ export default function ProductsSection() {
 
         {/* Equal height grid */}
         <div
-           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 mt-10 md:mt-12"
-           style={{ gridAutoRows: '1fr' }}
+         className="grid grid-cols-2 lg:grid-cols-5 gap-2 md:gap-5 mt-8 md:mt-12"
+         style={{ gridAutoRows: '1fr' }}
         >
           {products.map((product, idx) => (
             <Reveal key={idx} delay={(idx % 3) + 1}>

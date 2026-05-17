@@ -12,6 +12,8 @@ import WhyChooseSection from './components/sections/WhyChooseSection';
 import CTASection from './components/sections/CTASection';
 import Footer from './components/layout/Footer';
 import FloatingWidgets from './components/layout/FloatingWidgets';
+import TeamSection from './components/sections/TeamSection';
+import VideoSection from './components/sections/VideoSection';
 
 export default function App() {
   // Ensure the page always opens at the top
@@ -25,12 +27,14 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <VideoSection />
         <TrustStrip />
         <ProductsSection />
         <DeploymentsSection />
         <AboutSection />
         <ClientLogosSection />
         <TestimonialsSection />
+        <TeamSection />
         <WhyChooseSection />
         <CTASection />
       </main>

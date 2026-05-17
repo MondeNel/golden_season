@@ -16,7 +16,7 @@ export default {
           dim: 'rgba(29,158,117,0.15)',
         },
         muted: '#8aa3bc',
-        'text-dim': '#4a6a84',
+        dim: '#4a6a84',
         offwhite: '#f4f7f9',
         gold: '#f59e0b',
       },
