@@ -134,12 +134,14 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Case study strip – compact */}
-        <Reveal className="mt-6 md:mt-8">
-  <div className="bg-white border border-gray-200 rounded-2xl p-3 md:p-5 flex flex-wrap items-center gap-2 md:gap-4">
-    <span className="text-[10px] md:text-sm font-medium text-gray-500 pr-2 md:pr-4 border-r border-gray-200">
+      <Reveal className="mt-6 md:mt-8">
+  <div className="bg-white border border-gray-200 rounded-2xl p-3 md:p-5">
+    {/* Label on top */}
+    <span className="block text-[10px] md:text-sm font-medium text-gray-500 mb-2 md:mb-3">
       Read case studies
     </span>
-    <div className="flex flex-wrap gap-1 md:gap-2 flex-1">
+    {/* Tags row – always side by side */}
+    <div className="flex flex-wrap gap-1 md:gap-2 mb-2 md:mb-3">
       {['Nepal Earthquake 2024', 'NATO Baltic Storm', 'SCDF Rollout', 'WFP Sudan'].map((cs) => (
         <span
           key={cs}
@@ -149,12 +151,15 @@ export default function TestimonialsSection() {
         </span>
       ))}
     </div>
-    <button
-      onClick={() => setInsightsOpen(true)}
-      className="text-teal text-[10px] md:text-sm font-medium hover:underline whitespace-nowrap"
-    >
-      View all →
-    </button>
+    {/* View all link – right aligned */}
+    <div className="flex justify-end">
+      <button
+        onClick={() => setInsightsOpen(true)}
+        className="text-teal text-[10px] md:text-sm font-medium hover:underline"
+      >
+        View all →
+      </button>
+    </div>
   </div>
 </Reveal>
       </div>
