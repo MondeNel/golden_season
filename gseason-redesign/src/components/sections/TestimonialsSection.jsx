@@ -135,28 +135,28 @@ export default function TestimonialsSection() {
 
         {/* Case study strip – compact */}
         <Reveal className="mt-6 md:mt-8">
-          <div className="bg-white border border-gray-200 rounded-2xl p-4 md:p-5 flex flex-wrap items-center gap-3 md:gap-4">
-            <span className="text-xs md:text-sm font-medium text-gray-500 pr-3 md:pr-4 border-r border-gray-200">
-              Read case studies
-            </span>
-            <div className="flex flex-wrap gap-1.5 md:gap-2 flex-1">
-              {['Nepal Earthquake 2024', 'NATO Baltic Storm', 'SCDF Rollout', 'WFP Sudan'].map((cs) => (
-                <span
-                  key={cs}
-                  className="px-2.5 py-1 md:px-3 md:py-1.5 bg-gray-50 border border-gray-200 rounded-md text-[10px] md:text-xs text-gray-700 cursor-pointer hover:border-teal/40 hover:bg-teal/5 transition"
-                >
-                  {cs}
-                </span>
-              ))}
-            </div>
-            <button
-              onClick={() => setInsightsOpen(true)}
-              className="text-teal text-xs md:text-sm font-medium hover:underline"
-            >
-              View all →
-            </button>
-          </div>
-        </Reveal>
+  <div className="bg-white border border-gray-200 rounded-2xl p-3 md:p-5 flex flex-wrap items-center gap-2 md:gap-4">
+    <span className="text-[10px] md:text-sm font-medium text-gray-500 pr-2 md:pr-4 border-r border-gray-200">
+      Read case studies
+    </span>
+    <div className="flex flex-wrap gap-1 md:gap-2 flex-1">
+      {['Nepal Earthquake 2024', 'NATO Baltic Storm', 'SCDF Rollout', 'WFP Sudan'].map((cs) => (
+        <span
+          key={cs}
+          className="px-2 py-0.5 md:px-3 md:py-1.5 bg-gray-50 border border-gray-200 rounded-md text-[9px] md:text-xs text-gray-700 cursor-pointer hover:border-teal/40 hover:bg-teal/5 transition whitespace-nowrap"
+        >
+          {cs}
+        </span>
+      ))}
+    </div>
+    <button
+      onClick={() => setInsightsOpen(true)}
+      className="text-teal text-[10px] md:text-sm font-medium hover:underline whitespace-nowrap"
+    >
+      View all →
+    </button>
+  </div>
+</Reveal>
       </div>
 
       <NewsInsightsModal isOpen={insightsOpen} onClose={() => setInsightsOpen(false)} />
