@@ -56,13 +56,11 @@ Or contact us via WhatsApp (+27726390021) or email (info@goldenseason.com.sg).`,
   },
 ];
 
-// Fallback response
 const FALLBACK_RESPONSE = `I don't have specific information on that. For detailed questions, please reach out directly:
 • WhatsApp: +27726390021
 • Email: info@goldenseason.com.sg
 • Support: https://gseason.com/global-support/`;
 
-// Quick suggestion chips
 const SUGGESTIONS = [
   'What products do you offer?',
   'MedEvac stretcher specs',
@@ -71,7 +69,6 @@ const SUGGESTIONS = [
   'WhatsApp contact',
 ];
 
-// ─── Simple matcher ────────────────────────────────────────────────────────────
 function findResponse(text) {
   const lower = text.toLowerCase();
   let best = null;
@@ -96,24 +93,22 @@ export default function AIChatbotModal({ isOpen, onClose }) {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  // Show suggestions at start and after each assistant reply
   const [suggestionsVisible, setSuggestionsVisible] = useState(true);
 
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Auto‑scroll
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
-  // Focus on open
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 80);
     }
   }, [isOpen]);
 
-  // ESC to close
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape' && isOpen) onClose(); };
     window.addEventListener('keydown', onKey);
@@ -131,11 +126,12 @@ export default function AIChatbotModal({ isOpen, onClose }) {
     setMessages((prev) => [...prev, newUserMsg]);
     setLoading(true);
 
-    // Simulate network delay for natural feel
     setTimeout(() => {
       const reply = findResponse(text);
       setMessages((prev) => [...prev, { role: 'assistant', content: reply }]);
       setLoading(false);
+      // Show suggestions again after bot reply
+      setSuggestionsVisible(true);
     }, 600);
   }, [input, loading]);
 
@@ -152,13 +148,13 @@ export default function AIChatbotModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
       role="dialog"
       aria-modal="true"
       aria-label="GS Assistant"
     >
-      <div className="w-full sm:max-w-md bg-[#0b1a30] border border-white/10 rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] sm:max-h-[80vh] animate-slide-up">
+      <div className="w-full sm:max-w-md bg-[#0b1a30] border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh] animate-slide-up">
 
         {/* Header */}
         <div className="flex items-center gap-3 bg-[#040c18] px-4 py-3 border-b border-white/10 flex-shrink-0">
@@ -201,7 +197,7 @@ export default function AIChatbotModal({ isOpen, onClose }) {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#060f1e] scroll-smooth">
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#060f1e] scroll-smooth overscroll-contain">
           {messages.map((msg, idx) => (
             <MessageBubble key={idx} message={msg} />
           ))}
